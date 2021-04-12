@@ -1,4 +1,4 @@
-package com.example.timers_app
+package br.ufcg.timers
 
 import io.flutter.embedding.android.FlutterActivity
 

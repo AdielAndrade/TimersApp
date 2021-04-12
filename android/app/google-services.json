@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "7546009398",
+    "project_id": "timers-app-ufcg",
+    "storage_bucket": "timers-app-ufcg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7546009398:android:5f3f51bd4ca700e6cba597",
+        "android_client_info": {
+          "package_name": "br.ufcg.timers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7546009398-ojfsso0d057nc04buu29d8bdcdu0e5tv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.ufcg.timers",
+            "certificate_hash": "5ab1ed7e355d4f12c12af15e007bef934114ed91"
+          }
+        },
+        {
+          "client_id": "7546009398-1p6kvdto7mld9ima50m0kdueendu2i4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp4hlHC5EEpiPhrkt9TMG_l65juIZNuXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7546009398-1p6kvdto7mld9ima50m0kdueendu2i4l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
