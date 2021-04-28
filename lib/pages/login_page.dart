@@ -12,7 +12,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: Colors.blue[300],
+          backgroundColor: Colors.blue[100],
           centerTitle: true,
           elevation: 0,
           title: Text(
@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Container(
               height: MediaQuery.of(context).size.height * 0.7,
               width: MediaQuery.of(context).size.width,
-              color: Colors.blue[300],
+              color: Colors.blue[100],
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,11 +39,11 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 50, vertical: 3),
+                            horizontal: 20, vertical: 3),
                         child: Hero(
                           tag: 'hero-login',
                           child: Image.asset(
-                            "asserts/logo_head.png",
+                            "asserts/Logo.png",
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.7,
+              height: MediaQuery.of(context).size.height * 0.6,
               width: MediaQuery.of(context).size.width,
               decoration: new BoxDecoration(
                   color: Color(0xFFF3F3F5),
@@ -179,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                           hintText: "Senha")),
                 ),
                 GestureDetector(
-                  onTap: () { Navigator.pushNamed(context, '/home');},
+                  onTap: () { Navigator.pushReplacementNamed(context, '/tutorial');},
                   child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.07,
                       width: MediaQuery.of(context).size.width * 0.7,
@@ -188,7 +188,7 @@ class _LoginPageState extends State<LoginPage> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40),
                           ),
-                          color: Colors.blue[300],
+                          color: Colors.blue[400],
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Center(

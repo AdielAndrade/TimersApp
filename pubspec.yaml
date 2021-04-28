@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   firebase_core: "^1.0.3"
   cloud_firestore: ^1.0.4
+  smooth_star_rating: 1.1.1
+  carousel_slider: ^3.0.0
   
   cupertino_icons: ^1.0.0
 
