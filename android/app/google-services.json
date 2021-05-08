@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "7546009398",
-    "project_id": "timers-app-ufcg",
-    "storage_bucket": "timers-app-ufcg.appspot.com"
+    "project_number": "908720388540",
+    "project_id": "feridometro-bd496",
+    "storage_bucket": "feridometro-bd496.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:7546009398:android:5f3f51bd4ca700e6cba597",
+        "mobilesdk_app_id": "1:908720388540:android:0d0388e1b8180f0bac93b9",
         "android_client_info": {
-          "package_name": "br.ufcg.timers"
+          "package_name": "br.ufcg.feridometro"
         }
       },
       "oauth_client": [
         {
-          "client_id": "7546009398-ojfsso0d057nc04buu29d8bdcdu0e5tv.apps.googleusercontent.com",
+          "client_id": "908720388540-k0246ea9kjtd49ngsvn909ggchhvkf4t.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "br.ufcg.timers",
+            "package_name": "br.ufcg.feridometro",
             "certificate_hash": "5ab1ed7e355d4f12c12af15e007bef934114ed91"
           }
         },
         {
-          "client_id": "7546009398-1p6kvdto7mld9ima50m0kdueendu2i4l.apps.googleusercontent.com",
+          "client_id": "908720388540-eu1prt5vhuuc122eh94u0vb2qoj7j3sf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBp4hlHC5EEpiPhrkt9TMG_l65juIZNuXY"
+          "current_key": "AIzaSyA0CPkjVaT4FYfp7AFz3QSK_DmrK4C6uoU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "7546009398-1p6kvdto7mld9ima50m0kdueendu2i4l.apps.googleusercontent.com",
+              "client_id": "908720388540-eu1prt5vhuuc122eh94u0vb2qoj7j3sf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

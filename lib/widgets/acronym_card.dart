@@ -78,7 +78,7 @@ class _AcronymCardState extends State<AcronymCard> {
                                   borderRadius: new BorderRadius.circular(30.0),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {Navigator.pushNamed(context, '/assessment');},
                               child: Row(
                                 children: [
                                   Text("Avaliação"),
@@ -93,7 +93,7 @@ class _AcronymCardState extends State<AcronymCard> {
                                   borderRadius: new BorderRadius.circular(30.0),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {Navigator.pushNamed(context, '/treatment');},
                               child: Row(
                                 children: [
                                   Text("Tratamento"),
@@ -109,7 +109,7 @@ class _AcronymCardState extends State<AcronymCard> {
                                   borderRadius: new BorderRadius.circular(30.0),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {Navigator.pushNamed(context, '/cover');},
                               child: Row(
                                 children: [
                                   Text("Coberturas"),
@@ -119,7 +119,7 @@ class _AcronymCardState extends State<AcronymCard> {
                       SmoothStarRating(
                           allowHalfRating: false,
                           starCount: 5,
-                          rating: widget.points,
+                          rating: widget.points/2,
                           size: 35.0,
                           isReadOnly: true,
                           color: Colors.blue[300],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:timers_app/boxes.dart';
 import 'package:timers_app/widgets/acronym_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,6 +9,31 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  String name = "";
+  int t_points = 0;
+  int i_points = 0;
+  int m_points = 0;
+  int e_points = 0;
+  int r_points = 0;
+  int s_points = 0;
+
+  @override
+  void initState() {
+    final box = Boxes.getUsers();
+    setState(() {
+      name = box.getAt(box.length-1).nome;
+      t_points = box.getAt(box.length-1).pontosT;
+    });
+    
+    super.initState();
+  }
+
+  
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           children: [
                             Text(
-                              "Adiel Andrade",
+                              name,
                               style: TextStyle(
                                   fontSize: 30,
                                   fontWeight: FontWeight.w500,
@@ -107,14 +133,14 @@ class _HomePageState extends State<HomePage> {
               title: "T - Tecido",
               subtitle: "Objetivo: Limpar o leito da ferida, desbridar o tecido desvitalizado.",
               icon: AssetImage('asserts/t_icon.png'),
-              points: 4,
+              points: t_points.toDouble(),
             ),
              AcronymCard(
               backgroundIconColor: Colors.blue[300],
               title: "I - Inflamação",
               subtitle: "Objetivo: Controlar a inflamação, infecção, Biofilme.",
               icon: AssetImage('asserts/i_icon.png'),
-              points: 4,
+              points: i_points.toDouble(),
             ),
 
              AcronymCard(
@@ -122,7 +148,7 @@ class _HomePageState extends State<HomePage> {
               title:  "M - Umidade/exsudato",
               subtitle: "Objetivo: Controlar a umidade/exsudato da lesão.",
               icon: AssetImage('asserts/m_icon.png'),
-              points: 4,
+              points: m_points.toDouble(),
             ),
 
             AcronymCard(
@@ -130,7 +156,7 @@ class _HomePageState extends State<HomePage> {
               title:  "E - Bordas",
               subtitle: "Objetivo: redução do tamanho da ferida, epitelização.",
               icon: AssetImage('asserts/e_icon.png'),
-              points: 4,
+              points: e_points.toDouble(),
             ),
 
             AcronymCard(
@@ -138,7 +164,7 @@ class _HomePageState extends State<HomePage> {
               title:  "R - Regeneração/Reparação",
               subtitle:"Objetivos: fechamento da ferida, reparo do tecido.",
               icon: AssetImage('asserts/r_icon.png'),
-              points: 4,
+              points: r_points.toDouble(),
             ),
 
             AcronymCard(
@@ -146,7 +172,7 @@ class _HomePageState extends State<HomePage> {
               title:  "S -Fatores sociais",
               subtitle:"Objetivo: educação do paciente, família e cuidador; escuta ativa; compreensão do sistema de crenças.",
               icon: AssetImage('asserts/s_icon.png'),
-              points: 4,
+              points: s_points.toDouble(),
             ),
             
           ],

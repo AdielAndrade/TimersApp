@@ -76,7 +76,7 @@ List<QuizModel> t_quiz = [
       "Desbridamento enzimático",
       "Necrose de coagulação ou escara",
       "Desbridamento autolítico",
-      "Desbridamento biológico",
+      "Desbridamento autolítico",
       ""),
   QuizModel("A colagenase promove desbridamento do tipo:", "Mecânico",
       "Enzimático", "Autolítico", "Biológico", "Enzimático", ""),

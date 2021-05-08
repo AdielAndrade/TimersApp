@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:timers_app/model/tutorial_model.dart';
+
+import '../boxes.dart';
 
 class TutorialPage extends StatefulWidget {
   @override
@@ -8,6 +11,8 @@ class TutorialPage extends StatefulWidget {
 }
 
 class _TutorialPageState extends State<TutorialPage> {
+
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   List<TutorialModel> tutorial = [];
 
@@ -25,7 +30,21 @@ class _TutorialPageState extends State<TutorialPage> {
     setState(() {
       tutorial = createTutorial;
     });
+   
+
+
     super.initState();
+  }
+
+
+  @override
+  void dispose() {
+    final box = Boxes.getUsers();
+    print(box.getAt(box.length-1).id);
+    users.doc(box.getAt(box.length-1).id).update({
+      'tutorial' : false
+    });
+    super.dispose();
   }
 
 

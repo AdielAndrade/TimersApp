@@ -3,11 +3,9 @@ import 'package:timers_app/model/quiz_model.dart';
 
 class Quiz extends StatefulWidget {
   QuizModel quiz;
+  Function submit;
 
-  Quiz(this.quiz);
-
-
-
+  Quiz(this.quiz, this.submit);
 
   @override
   _QuizState createState() => _QuizState();
@@ -18,6 +16,8 @@ class _QuizState extends State<Quiz> {
   bool alt_b = false;
   bool alt_c = false;
   bool alt_d = false;
+
+  bool showAnswer = false;
 
   turnFalse() {
     setState(() {
@@ -56,6 +56,33 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  answering(){
+    setState(() {
+      showAnswer = true;
+    });
+  }
+
+
+  submit(){
+    if(alt_a && widget.quiz.alt_A == widget.quiz.correct){
+      widget.submit(true);
+    }else if(alt_b && widget.quiz.alt_B == widget.quiz.correct){
+      widget.submit(true);
+    }else if(alt_c && widget.quiz.alt_C == widget.quiz.correct){
+      widget.submit(true);
+    }else if(alt_d && widget.quiz.alt_D == widget.quiz.correct){
+      widget.submit(true);
+    }else{
+      widget.submit(false);
+    }
+    turnFalse();
+    setState(() {
+      showAnswer = false;
+
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -64,7 +91,10 @@ class _QuizState extends State<Quiz> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Questão", style:  TextStyle(fontWeight: FontWeight.bold),),
+          Text(
+            "Questão",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           SizedBox(
             height: 20,
           ),
@@ -72,25 +102,27 @@ class _QuizState extends State<Quiz> {
           SizedBox(
             height: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                widget.quiz.image,
-                height: 250,
-                width: 300,
-                fit: BoxFit.fill,
-              ),
-            ],
-          ),
+          widget.quiz.image != ""
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      widget.quiz.image,
+                      height: 250,
+                      width: 300,
+                      fit: BoxFit.fill,
+                    ),
+                  ],
+                )
+              : SizedBox(),
           SizedBox(
             height: 20,
           ),
           InkWell(
-            onTap: () => selectAlt_a(),
+            onTap: () => showAnswer? (){} :selectAlt_a(),
             child: Container(
               decoration: BoxDecoration(
-                border: Border.all(color: alt_a ? Colors.blue : Colors.black),
+                border: Border.all(color:showAnswer? widget.quiz.alt_A == widget.quiz.correct ? Colors.green: Colors.red : alt_a ? Colors.blue : Colors.black),
                 borderRadius: BorderRadius.circular(10),
               ),
               padding: EdgeInsets.all(8),
@@ -105,10 +137,10 @@ class _QuizState extends State<Quiz> {
             height: 8,
           ),
           InkWell(
-            onTap: () => selectAlt_b(),
+            onTap: () => showAnswer? (){} :selectAlt_b(),
             child: Container(
               decoration: BoxDecoration(
-                border: Border.all(color: alt_b ? Colors.blue : Colors.black),
+                border: Border.all(color:showAnswer? widget.quiz.alt_B == widget.quiz.correct ? Colors.green: Colors.red : alt_b ? Colors.blue : Colors.black),
                 borderRadius: BorderRadius.circular(10),
               ),
               padding: EdgeInsets.all(8),
@@ -123,10 +155,10 @@ class _QuizState extends State<Quiz> {
             height: 8,
           ),
           InkWell(
-            onTap: () => selectAlt_c(),
+            onTap: () => showAnswer? (){} :selectAlt_c(),
             child: Container(
               decoration: BoxDecoration(
-                border: Border.all(color: alt_c ? Colors.blue : Colors.black),
+                border: Border.all(color:showAnswer? widget.quiz.alt_C == widget.quiz.correct ? Colors.green: Colors.red : alt_c ? Colors.blue : Colors.black),
                 borderRadius: BorderRadius.circular(10),
               ),
               padding: EdgeInsets.all(8),
@@ -141,10 +173,10 @@ class _QuizState extends State<Quiz> {
             height: 8,
           ),
           InkWell(
-            onTap: () => selectAlt_d(),
+            onTap: () => showAnswer? (){} :selectAlt_d(),
             child: Container(
               decoration: BoxDecoration(
-                border: Border.all(color: alt_d ? Colors.blue : Colors.black),
+                border: Border.all(color:showAnswer? widget.quiz.alt_D == widget.quiz.correct ? Colors.green: Colors.red : alt_d ? Colors.blue : Colors.black),
                 borderRadius: BorderRadius.circular(10),
               ),
               padding: EdgeInsets.all(8),
@@ -154,6 +186,36 @@ class _QuizState extends State<Quiz> {
                 ],
               ),
             ),
+          ),
+          SizedBox(
+            height: 24,
+          ),
+          showAnswer? 
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              OutlinedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(30.0),
+                    ),
+                  ),
+                  onPressed: () {submit();},
+                  child: Text("               Continuar                ")),
+            ],
+          ):
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(30.0),
+                    ),
+                  ),
+                  onPressed: () {answering();},
+                  child: Text("                 Enviar                  ")),
+            ],
           )
         ],
       ),

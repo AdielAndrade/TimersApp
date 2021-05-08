@@ -1,4 +1,4 @@
-package br.ufcg.timers
+package br.ufcg.feridometro
 
 import io.flutter.embedding.android.FlutterActivity
 

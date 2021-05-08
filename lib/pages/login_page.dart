@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:timers_app/boxes.dart';
+import 'package:timers_app/model/user_model.dart';
 import 'package:timers_app/widgets/footer.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -7,6 +10,52 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+  TextEditingController _textEditingControllerUser = TextEditingController();
+
+  TextEditingController _textEditingControllerPassword =
+      TextEditingController();
+
+
+  login(){
+    users
+    .where('email', isEqualTo: _textEditingControllerUser.text)
+    .where("senha", isEqualTo: _textEditingControllerPassword.text)
+    .snapshots().listen(
+          (data) {
+            User userLog = User()
+            ..email = data.docs[0]['email']
+            ..instituicao = data.docs[0]['instituicao']
+            ..nome = data.docs[0]['nome']
+            ..tutorial = data.docs[0]['tutorial']
+            ..pontosT = data.docs[0]['pontos_T']
+            ..pontosI = data.docs[0]['pontos_I']
+            ..pontosM = data.docs[0]['pontos_M']
+            ..pontosE = data.docs[0]['pontos_E']
+            ..pontosR = data.docs[0]['pontos_R']
+            ..pontosS = data.docs[0]['pontos_S']
+            ..id = data.docs[0].id;
+
+            final box = Boxes.getUsers();
+            box.add(userLog);
+
+            if(data.docs[0]['tutorial']){
+              Navigator.pushReplacementNamed(context, '/tutorial');
+            }else{
+              Navigator.pushReplacementNamed(context, '/home');
+            }
+            
+            });
+    
+
+    
+  }
+  
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,11 +122,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  TextEditingController _textEditingControllerUser = TextEditingController();
-
-  TextEditingController _textEditingControllerPassword =
-      TextEditingController();
-
+  
   bool isNoVisiblePassword = false;
   bool isRequest = false;
 
@@ -179,7 +224,7 @@ class _LoginPageState extends State<LoginPage> {
                           hintText: "Senha")),
                 ),
                 GestureDetector(
-                  onTap: () { Navigator.pushReplacementNamed(context, '/tutorial');},
+                  onTap: () { login();},
                   child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.07,
                       width: MediaQuery.of(context).size.width * 0.7,
